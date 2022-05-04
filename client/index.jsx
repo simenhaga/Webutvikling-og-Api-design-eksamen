@@ -48,14 +48,18 @@ function Frontpage({ reload }) {
               </Link>
             </div>
           )}
-          <div>
-            <Link id="login" to={"/login"}>
-              Log in
-            </Link>
-          </div>
+          {!userinfo && (
+            <div>
+              <Link id="login" to={"/login"}>
+                Log in
+              </Link>
+            </div>
+          )}
           {userinfo && (
             <div>
-              <button onClick={handleLogout}>Log out</button>
+              <button id="login" onClick={handleLogout}>
+                Log out
+              </button>
             </div>
           )}
         </div>
