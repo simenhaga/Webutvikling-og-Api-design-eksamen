@@ -140,7 +140,7 @@ function ArticleCard({
       <h3>{title}</h3>
       <div>
         av <strong>{author}, </strong>
-        <em>{date}</em>
+        <em>{topic}</em>
       </div>
       <article>{article_text}</article>
     </>
