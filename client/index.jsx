@@ -41,6 +41,13 @@ function Frontpage({ reload }) {
               </Link>
             </div>
           )}
+          {userinfo && (
+            <div>
+              <Link id="addArticle" to={"/articles/update"}>
+                Update article
+              </Link>
+            </div>
+          )}
           <div>
             <Link id="login" to={"/login"}>
               Log in
@@ -257,7 +264,7 @@ function AddNewArticle() {
       </div>
       <div>
         Topic:
-        <input value={topic} onChange={(e) => setTopic(e.target.value)} />
+        <select value={topic} onChange={(e) => setTopic(e.target.value)} />
       </div>
       <div>Text:</div>
       <div>
@@ -268,6 +275,15 @@ function AddNewArticle() {
       </div>
       <button>Submit</button>
     </form>
+  );
+}
+
+function UpdateArticle() {
+  return (
+    <div>
+      <h1>Update article</h1>
+      <p>This page is under construction....</p>
+    </div>
   );
 }
 
@@ -298,6 +314,7 @@ function Application() {
           <Route path={"/login"} element={<Login />} />
           <Route path={"/profile"} element={<Profile />} />
           <Route path={"/articles/new"} element={<AddNewArticle />} />
+          <Route path={"/articles/update"} element={<UpdateArticle />} />
           <Route
             path={"/login/callback"}
             element={<LoginCallback reload={loadLoginInfo} />}
