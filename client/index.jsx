@@ -230,7 +230,6 @@ function useLoading(loadingFunction) {
 
 function AddNewArticle() {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
   const [topic, setTopic] = useState("");
   const [author, setAuthor] = useState("");
   const [article_text, setArticle_text] = useState("");
@@ -241,15 +240,24 @@ function AddNewArticle() {
     e.preventDefault();
     await fetchJSON("/api/articles/new", {
       method: "post",
-      json: { title, date, topic, author, article_text },
+      json: { title, topic, author, article_text },
     });
     setTitle("");
-    setDate("");
     setTopic("");
     setAuthor("");
     setArticle_text("");
     navigate("/");
   }
+
+  const topics = [
+    "Sport",
+    "Økonomi",
+    "Kultur",
+    "Rampelys",
+    "Utenriks",
+    "Innenriks",
+    "Teknologi",
+  ];
 
   return (
     <form onSubmit={handleSubmit}>
@@ -264,7 +272,11 @@ function AddNewArticle() {
       </div>
       <div>
         Topic:
-        <select value={topic} onChange={(e) => setTopic(e.target.value)} />
+        <select name={"topic"} onChange={(e) => setTopic(e.target.value)}>
+          {topics.map((t) => (
+            <option value={t}>{t}</option>
+          ))}
+        </select>
       </div>
       <div>Text:</div>
       <div>
