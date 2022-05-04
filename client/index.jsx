@@ -273,6 +273,9 @@ function AddNewArticle() {
       <div>
         Topic:
         <select name={"topic"} onChange={(e) => setTopic(e.target.value)}>
+          <option value="none" selected disabled hidden>
+            Select an Option
+          </option>
           {topics.map((t) => (
             <option value={t}>{t}</option>
           ))}
