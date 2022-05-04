@@ -6,7 +6,7 @@
     "nav content";
 
     grid-template-columns: 25% 75%;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 10% 1fr;
     grid-gap: 10px;
 
     height: 100vh;
@@ -17,18 +17,18 @@ header {
     border: black 5px;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    background-color: lime;
+    background-color: lightsalmon;
 }
 
 nav {
     grid-area: nav;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    background-color: lime;
+    background-color: lightgreen;
 }
 
 main {
     grid-area: content;
     margin-right: 0.5rem;
-    background-color: lime;
+    background-color: lightpink;
 }
