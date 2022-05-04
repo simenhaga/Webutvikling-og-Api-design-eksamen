@@ -39,5 +39,17 @@ export function ArticlesApi(mongoDatabase) {
     res.json(articles);
   });
 
+  router.post("/new", async (req, res) => {
+    const { author, title, topic, article_text } = req.body;
+    await mongoDatabase.collection("articles").insertOne({
+      author,
+      title,
+      topic,
+      date: new Date(Date.now()),
+      article_text,
+    });
+    res.sendStatus(204);
+  });
+
   return router;
 }

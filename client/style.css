@@ -18,6 +18,8 @@ header {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     background-color: lightsalmon;
+    display: inline-block;
+
 }
 
 nav {
@@ -26,9 +28,56 @@ nav {
     margin-right: 0.5rem;
     background-color: lightgreen;
 }
+nav div {
+    margin-left: 0.5rem;
+}
 
 main {
     grid-area: content;
     margin-right: 0.5rem;
     background-color: lightpink;
 }
+
+main div {
+        margin-left: 0.5rem;
+
+}
+
+#appName {
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    margin-left: 2.5rem;
+}
+
+#login {
+    font-family: "Arial Rounded MT", sans-serif;
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin-left: 20rem;
+}
+
+header #wrapper div {
+    display: inline-block;
+}
+
+#profileName {
+    font-family: "Arial Rounded MT", sans-serif;
+    text-decoration: none;
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 15px;
+    margin-left: 10rem;
+}
+
+#addArticle {
+    font-family: "Arial Rounded MT", sans-serif;
+    text-decoration: none;
+    border-radius: 10px;
+    color: blueviolet;
+    padding: 10px 15px;
+    margin-left: 3rem;
+}
+
