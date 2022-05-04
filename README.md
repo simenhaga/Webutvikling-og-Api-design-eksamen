@@ -1,6 +1,6 @@
 # PG6301 eksamen <tittel på løsningen>
 
-[Heroku](link til heroku)
+[Heroku](https://pg6301-exam-simenhaga.herokuapp.com/)
 [Test rapport](link til testrapport)
 
 ## Tips

@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/kristiania-pg6301-2022/pgr6301-exam-simenhaga#readme",
   "devDependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^7.1.0",
+    "husky": "^7.0.4"
+  },
+  "dependencies": {
+    "prettier": "^2.6.2"
   }
 }
