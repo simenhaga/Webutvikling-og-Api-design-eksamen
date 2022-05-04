@@ -28,6 +28,7 @@ nav {
     margin-right: 0.5rem;
     background-color: lightgreen;
 }
+
 nav div {
     margin-left: 0.5rem;
 }
@@ -40,7 +41,6 @@ main {
 
 main div {
         margin-left: 0.5rem;
-
 }
 
 #appName {
@@ -80,4 +80,11 @@ header #wrapper div {
     padding: 10px 15px;
     margin-left: 1.5rem;
 }
+
+.articleName h3 {
+    margin: 0;
+    padding: 0;
+}
+
+
 

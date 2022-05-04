@@ -62,6 +62,9 @@ function Frontpage({ reload }) {
       </header>
 
       <nav>
+        <div id="wrapper">
+          <div>{topicsCard()}</div>
+        </div>
         <div>{ListTitles()}</div>
       </nav>
 
@@ -144,12 +147,14 @@ function ArticleCard({
 }) {
   return (
     <>
-      <h3>{title}</h3>
-      <div>
-        av <strong>{author}, </strong>
-        <em>{topic}</em>
+      <div className="articleCard">
+        <h3>{title}</h3>
+        <div>
+          av <strong>{author}, </strong>
+          <em>{topic}</em>
+        </div>
+        <article>{article_text}</article>
       </div>
-      <article>{article_text}</article>
     </>
   );
 }
@@ -228,9 +233,49 @@ function useLoading(loadingFunction) {
   return { loading, error, data };
 }
 
+function topicsCard() {
+  const topics = [
+    "Sport",
+    "Økonomi",
+    "Kultur",
+    "Rampelys",
+    "Utenriks",
+    "Innenriks",
+    "Teknologi",
+  ];
+
+  return (
+    <>
+      <div className="topicsCard">
+        <div>
+          <h3>Topics</h3>
+          <select name={"topic"}>
+            <option value="none" selected disabled hidden>
+              Select an Option
+            </option>
+            {topics.map((t) => (
+              <option value={t}>{t}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function AddNewArticle() {
+  const topics = [
+    "Sport",
+    "Økonomi",
+    "Kultur",
+    "Rampelys",
+    "Utenriks",
+    "Innenriks",
+    "Teknologi",
+  ];
+
   const [title, setTitle] = useState("");
-  const [topic, setTopic] = useState("");
+  const [topic, setTopic] = useState(topics[0]);
   const [author, setAuthor] = useState("");
   const [article_text, setArticle_text] = useState("");
 
@@ -249,16 +294,6 @@ function AddNewArticle() {
     navigate("/");
   }
 
-  const topics = [
-    "Sport",
-    "Økonomi",
-    "Kultur",
-    "Rampelys",
-    "Utenriks",
-    "Innenriks",
-    "Teknologi",
-  ];
-
   return (
     <form onSubmit={handleSubmit}>
       <h1>Add Article</h1>
@@ -273,9 +308,6 @@ function AddNewArticle() {
       <div>
         Topic:
         <select name={"topic"} onChange={(e) => setTopic(e.target.value)}>
-          <option value="none" selected disabled hidden>
-            Select an Option
-          </option>
           {topics.map((t) => (
             <option value={t}>{t}</option>
           ))}
