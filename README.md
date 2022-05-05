@@ -1,8 +1,10 @@
 # PG6301 eksamen pgr6301-exam-simenhaga
 
 [Heroku](https://pg6301-exam-simenhaga.herokuapp.com/)
-[Test rapport](link til testrapport)
 
+[Test rapport](https://github.com/kristiania-pg6301-2022/pgr6301-exam-simenhaga/commit/c1cb9e68c05c8bc16a640175ed855fa631af5ef3#commitcomment-72979690)
+
+Coverage rapporten gir meg feilmeldingen `Error: The process '/usr/local/bin/npx' failed with exit code 1` og jeg har dessverre ikke klart å finne ut va dette skyldes, selv om jeg har brukt nærmere 2 timer på å løse det.
 
 ## Egenutfylling av funksjonelle krav
 
