@@ -41,14 +41,23 @@ export function ArticlesApi(mongoDatabase) {
 
   router.post("/new", async (req, res) => {
     const { author, title, topic, article_text } = req.body;
-    await mongoDatabase.collection("articles").insertOne({
-      author,
-      title,
-      topic,
-      date: new Date(Date.now()),
-      article_text,
-    });
-    res.sendStatus(204);
+    if (!author || !title || !topic || !article_text) {
+      console.log("You need to pass in all required fields!");
+      res.sendStatus(400);
+      return;
+    }
+    try {
+      await mongoDatabase.collection("articles").insertOne({
+        author,
+        title,
+        topic,
+        date: new Date(Date.now()),
+        article_text,
+      });
+      res.sendStatus(204);
+    } catch (error) {
+      console.log(error.toString());
+    }
   });
 
   return router;
