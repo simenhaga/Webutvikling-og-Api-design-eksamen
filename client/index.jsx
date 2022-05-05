@@ -85,12 +85,16 @@ function Profile() {
 
   return (
     <>
-      <h1>
-        User profile: {userinfo.name} ({userinfo.email})
-      </h1>
+      <h1>Welcome to your profile page {userinfo.name}!</h1>
+
+      <h3>Profile picture:</h3>
       {userinfo.picture && (
         <img src={userinfo.picture} alt={userinfo.name + " profile picture"} />
       )}
+      <div>
+        <h3>Your email:</h3>
+        <h4>{userinfo.email}</h4>
+      </div>
     </>
   );
 }
