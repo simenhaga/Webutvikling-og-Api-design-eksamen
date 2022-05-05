@@ -57,7 +57,7 @@ function Frontpage({ reload }) {
           )}
           {userinfo && (
             <div>
-              <button id="login" onClick={handleLogout}>
+              <button id="logout" onClick={handleLogout}>
                 Log out
               </button>
             </div>
@@ -72,7 +72,9 @@ function Frontpage({ reload }) {
         <div>{ListTitles()}</div>
       </nav>
 
-      <main>{userinfo && <div>{ListArticles()}</div>}</main>
+      <main>
+        {userinfo && <div className={"letter"}>{ListArticles()}</div>}
+      </main>
     </div>
   );
 }

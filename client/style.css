@@ -7,24 +7,27 @@
 
     grid-template-columns: 25% 75%;
     grid-template-rows: 10% 1fr;
-    grid-gap: 5px;
 
     height: 100vh;
 }
 
+body {
+   background-color: white;
+    margin: 0;
+}
+
 header {
     grid-area: header;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    background-color: lightsalmon;
     display: inline-block;
     position: relative;
+    background-color: #FFA552;
+    margin: 0;
+    top: 0;
 }
 
 nav {
     grid-area: nav;
-    margin-left: 0.5rem;
-    background-color: lightgreen;
+    background-color: #FFB168;
 }
 
 nav div {
@@ -33,8 +36,8 @@ nav div {
 
 main {
     grid-area: content;
-    margin-right: 0.5rem;
-    background-color: lightpink;
+    background-color: #FFB168;
+    padding-bottom: 3rem;
 }
 
 main div {
@@ -48,18 +51,34 @@ main div {
     margin: 0;
     top: 1rem;
     font-size: 40px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+
 }
 
 #login {
-    font-family: "Arial Rounded MT", sans-serif;
-    background-color: blueviolet;
-    border-radius: 10px;
     color: white;
+    font-family: "Arial Rounded MT", sans-serif;
+    background-color: #35A7FF;
+    border-radius: 10px;
     padding: 10px 15px;
     text-decoration: none;
     right: 3rem;
     position: absolute;
     top: 1.5rem;
+}
+
+#logout {
+    color: white;
+    font-family: "Arial Rounded MT", sans-serif;
+    background-color: #35A7FF;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    right: 3rem;
+    position: absolute;
+    top: 1.5rem;
+    border: none;
 }
 
 header #wrapper div {
@@ -69,41 +88,59 @@ header #wrapper div {
 #profileName {
     font-family: "Arial Rounded MT", sans-serif;
     text-decoration: none;
-    background-color: blueviolet;
+    background-color: #35A7FF;
     border-radius: 10px;
     color: white;
     padding: 10px 15px;
     position: absolute;
     left: 23rem;
     top: 1.5rem;
+
 }
 
 #addArticle {
     font-family: "Arial Rounded MT", sans-serif;
     text-decoration: none;
     border-radius: 10px;
-    color: blueviolet;
+    color: white;
     padding: 10px 15px;
     position: absolute;
     left: 35rem;
     top: 1.5rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+
 }
 
 #updateArticle {
     font-family: "Arial Rounded MT", sans-serif;
     text-decoration: none;
     border-radius: 10px;
-    color: blueviolet;
+    color: white;
     padding: 10px 15px;
     position: absolute;
     left: 43rem;
     top: 1.5rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+
 }
 
 .articleName h3 {
     margin: 0;
     padding: 0;
 }
+
+.letter {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 26px 3rem 0;
+    max-width: 85%;
+    padding: 24px;
+    position: relative;
+    width: 100%;
+}
+
+
+
 
 
 
