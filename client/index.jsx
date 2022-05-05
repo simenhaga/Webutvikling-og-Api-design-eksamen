@@ -1,18 +1,13 @@
 import ReactDOM from "react-dom";
 import React, { useContext, useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Link,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { fetchJSON } from "./utils/fetchJSON";
 import { AddNewArticle } from "./addNewArticle";
 import { UpdateArticle } from "./updateArticle";
 import { ListArticles } from "./listArticles";
 import { ListTitles } from "./listTitles";
 import { ListTopics } from "./listTopics";
+import { LoginCallback } from "./loginCallback";
 
 const ProfileContext = React.createContext({
   userinfo: undefined,
@@ -116,27 +111,6 @@ function Login() {
     window.location.href =
       authorization_endpoint + "?" + new URLSearchParams(params);
   }, []);
-  return <h1>Please wait</h1>;
-}
-
-function LoginCallback({ reload }) {
-  const navigate = useNavigate();
-  async function test() {
-    const { access_token } = Object.fromEntries(
-      new URLSearchParams(window.location.hash.substring(1))
-    );
-    const res = await fetch("/api/login", {
-      method: "post",
-      body: new URLSearchParams({ access_token }),
-    });
-    if (res.ok) {
-      reload();
-      navigate("/");
-    }
-  }
-  useEffect(() => {
-    test();
-  });
   return <h1>Please wait</h1>;
 }
 
