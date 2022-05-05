@@ -8,6 +8,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { fetchJSON } from "./utils/fetchJSON";
+import { ArticleCard } from "./components/articleCard";
 
 const ProfileContext = React.createContext({
   userinfo: undefined,
@@ -133,23 +134,6 @@ function LoginCallback({ reload }) {
     test();
   });
   return <h1>Please wait</h1>;
-}
-
-function ArticleCard({
-  article: { title, date, author, topic, article_text },
-}) {
-  return (
-    <>
-      <div className="articleCard">
-        <h3>{title}</h3>
-        <div>
-          av <strong>{author}, </strong>
-          <em>{topic}</em>
-        </div>
-        <article>{article_text}</article>
-      </div>
-    </>
-  );
 }
 
 function ListArticles() {
