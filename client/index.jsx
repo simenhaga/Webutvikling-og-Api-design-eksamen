@@ -208,8 +208,9 @@ function ListTitles() {
 
   return (
     <div>
+      <h2>Articles</h2>
       {data.map((article) => (
-        <h3>{article.title}</h3>
+        <p>{article.title}</p>
       ))}
     </div>
   );
@@ -256,8 +257,11 @@ function ListTopics() {
 
   return (
     <div>
+      <h2>Topics</h2>
       {data.map((topic) => (
-        <li>{topic._id}</li>
+        <li>
+          {topic._id} ({topic.total})
+        </li>
       ))}
     </div>
   );

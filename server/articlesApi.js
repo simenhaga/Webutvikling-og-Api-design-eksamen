@@ -56,6 +56,7 @@ export function ArticlesApi(mongoDatabase) {
       .collection("articles")
       .aggregate([{ $group: { _id: "$topic", total: { $sum: 1 } } }])
       .toArray();
+    res.json(topic);
   });
 
   return router;
