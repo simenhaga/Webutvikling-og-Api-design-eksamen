@@ -7,7 +7,7 @@
 
     grid-template-columns: 25% 75%;
     grid-template-rows: 10% 1fr;
-    grid-gap: 10px;
+    grid-gap: 5px;
 
     height: 100vh;
 }
@@ -24,12 +24,11 @@ header {
 nav {
     grid-area: nav;
     margin-left: 0.5rem;
-    margin-right: 0.5rem;
     background-color: lightgreen;
 }
 
 nav div {
-    margin-left: 0.5rem;
+    padding: 5px 10px;
 }
 
 main {
@@ -39,7 +38,7 @@ main {
 }
 
 main div {
-        margin-left: 0.5rem;
+    padding: 5px 10px;
 }
 
 #appName {
@@ -47,8 +46,8 @@ main div {
     left: 4rem;
     position: absolute;
     margin: 0;
-    top: 1.5rem;
-
+    top: 1rem;
+    font-size: 40px;
 }
 
 #login {

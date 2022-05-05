@@ -1,15 +1,5 @@
 import { Router } from "express";
 
-const articles = [
-  {
-    title: "Sportsnyheter",
-    date: "10-10-2021",
-    name: "Test Author",
-    topic: "sport",
-    article_text: "Dette er en tekst som sportsnyheter i Norge.",
-  },
-];
-
 export function ArticlesApi(mongoDatabase) {
   const router = new Router();
 
@@ -58,6 +48,14 @@ export function ArticlesApi(mongoDatabase) {
     } catch (error) {
       console.log(error.toString());
     }
+  });
+
+  // DENNE FUNKSJONEN HAR JEG FÅTT AV MAGNUS HODNE
+  router.get("/topics", async (req, res) => {
+    const topic = await mongoDatabase
+      .collection("articles")
+      .aggregate([{ $group: { _id: "$topic", total: { $sum: 1 } } }])
+      .toArray();
   });
 
   return router;

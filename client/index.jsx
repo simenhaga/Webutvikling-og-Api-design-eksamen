@@ -67,7 +67,7 @@ function Frontpage({ reload }) {
 
       <nav>
         <div id="wrapper">
-          <div>{topicsCard()}</div>
+          <div>{ListTopics()}</div>
         </div>
         <div>{ListTitles()}</div>
       </nav>
@@ -237,33 +237,29 @@ function useLoading(loadingFunction) {
   return { loading, error, data };
 }
 
-function topicsCard() {
-  const topics = [
-    "Sport",
-    "Økonomi",
-    "Kultur",
-    "Rampelys",
-    "Utenriks",
-    "Innenriks",
-    "Teknologi",
-  ];
+function ListTopics() {
+  const { loading, error, data } = useLoading(async () =>
+    fetchJSON("/api/articles/topics")
+  );
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <div>{error.toString()}</div>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div className="topicsCard">
-        <div>
-          <h3>Topics</h3>
-          <select name={"topic"}>
-            <option value="none" selected disabled hidden>
-              Select an Option
-            </option>
-            {topics.map((t) => (
-              <option value={t}>{t}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-    </>
+    <div>
+      {data.map((topic) => (
+        <li>{topic._id}</li>
+      ))}
+    </div>
   );
 }
 
@@ -330,11 +326,74 @@ function AddNewArticle() {
 }
 
 function UpdateArticle() {
+  const topics = [
+    "Sport",
+    "Økonomi",
+    "Kultur",
+    "Rampelys",
+    "Utenriks",
+    "Innenriks",
+    "Teknologi",
+  ];
+
+  const titles = [ListTitles()];
+
+  const [title, setTitle] = useState("");
+  const [topic, setTopic] = useState(topics[0]);
+  const [author, setAuthor] = useState("");
+  const [article_text, setArticle_text] = useState("");
+
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await fetchJSON("/api/articles/update", {
+      method: "put",
+      json: { title, topic, author, article_text },
+    });
+    setTitle("");
+    setTopic("");
+    setAuthor("");
+    setArticle_text("");
+    navigate("/");
+  }
+
   return (
-    <div>
-      <h1>Update article</h1>
-      <p>This page is under construction....</p>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <h1>Update Article</h1>
+      <div>
+        Choose an article to update:
+        <select name={"titles"}>
+          {titles.map((t) => (
+            <option value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        Author:
+        <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+      </div>
+      <div>
+        Title:
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      </div>
+      <div>
+        Topic:
+        <select name={"topic"} onChange={(e) => setTopic(e.target.value)}>
+          {topics.map((t) => (
+            <option value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+      <div>Text:</div>
+      <div>
+        <textarea
+          value={article_text}
+          onChange={(e) => setArticle_text(e.target.value)}
+        />
+      </div>
+      <button>Submit</button>
+    </form>
   );
 }
 
