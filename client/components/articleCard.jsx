@@ -1,7 +1,7 @@
 import React from "react";
 
 export function ArticleCard({
-  article: { title, date, author, topic, article_text },
+  article: { title, author, topic, article_text },
 }) {
   return (
     <>
