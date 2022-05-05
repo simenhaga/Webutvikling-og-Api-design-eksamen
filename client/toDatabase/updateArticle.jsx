@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { fetchJSON } from "./utils/fetchJSON";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchJSON } from "../utils/fetchJSON";
+import { ListArticles } from "../elements/listArticles";
 
-export function AddNewArticle() {
+export function UpdateArticle() {
   const topics = [
     "Sport",
     "Økonomi",
@@ -13,6 +14,8 @@ export function AddNewArticle() {
     "Teknologi",
   ];
 
+  const titles = [ListArticles()];
+
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState(topics[0]);
   const [author, setAuthor] = useState("");
@@ -22,8 +25,8 @@ export function AddNewArticle() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await fetchJSON("/api/articles/new", {
-      method: "post",
+    await fetchJSON("/api/articles/update", {
+      method: "put",
       json: { title, topic, author, article_text },
     });
     setTitle("");
@@ -34,8 +37,17 @@ export function AddNewArticle() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Add Article</h1>
+    <form id={"form"} onSubmit={handleSubmit}>
+      <Link to={"/"}>back</Link>
+      <h1>Update Article</h1>
+      <div>
+        Choose an article to update:
+        <select name={"titles"}>
+          {titles.map((t) => (
+            <option value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
       <div>
         Author:
         <input value={author} onChange={(e) => setAuthor(e.target.value)} />

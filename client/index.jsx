@@ -2,12 +2,12 @@ import ReactDOM from "react-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { fetchJSON } from "./utils/fetchJSON";
-import { AddNewArticle } from "./addNewArticle";
-import { UpdateArticle } from "./updateArticle";
-import { ListArticles } from "./listArticles";
-import { ListTitles } from "./listTitles";
-import { ListTopics } from "./listTopics";
-import { LoginCallback } from "./loginCallback";
+import { AddNewArticle } from "./toDatabase/addNewArticle";
+import { UpdateArticle } from "./toDatabase/updateArticle";
+import { ListArticles } from "./elements/listArticles";
+import { ListTitles } from "./elements/listTitles";
+import { ListTopics } from "./elements/listTopics";
+import { LoginCallback } from "./utils/loginCallback";
 
 const ProfileContext = React.createContext({
   userinfo: undefined,

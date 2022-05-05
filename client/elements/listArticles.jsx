@@ -1,6 +1,6 @@
-import { useLoading } from "./utils/useLoading";
-import { fetchJSON } from "./utils/fetchJSON";
-import { ArticleCard } from "./components/articleCard";
+import { useLoading } from "../utils/useLoading";
+import { fetchJSON } from "../utils/fetchJSON";
+import { ArticleCard } from "../components/articleCard";
 import React from "react";
 
 export function ListArticles() {

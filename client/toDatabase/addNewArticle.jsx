@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchJSON } from "./utils/fetchJSON";
+import { fetchJSON } from "../utils/fetchJSON";
 
-export function UpdateArticle() {
+export function AddNewArticle() {
   const topics = [
     "Sport",
     "Økonomi",
@@ -22,8 +22,8 @@ export function UpdateArticle() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await fetchJSON("/api/articles/update", {
-      method: "put",
+    await fetchJSON("/api/articles/new", {
+      method: "post",
       json: { title, topic, author, article_text },
     });
     setTitle("");
@@ -34,16 +34,8 @@ export function UpdateArticle() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Update Article</h1>
-      <div>
-        Choose an article to update:
-        <select name={"titles"}>
-          {titles.map((t) => (
-            <option value={t}>{t}</option>
-          ))}
-        </select>
-      </div>
+    <form id={"form"} onSubmit={handleSubmit}>
+      <h1>Add Article</h1>
       <div>
         Author:
         <input value={author} onChange={(e) => setAuthor(e.target.value)} />

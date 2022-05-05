@@ -1,5 +1,5 @@
-import { useLoading } from "./utils/useLoading";
-import { fetchJSON } from "./utils/fetchJSON";
+import { useLoading } from "../utils/useLoading";
+import { fetchJSON } from "../utils/fetchJSON";
 import React from "react";
 
 export function ListTopics() {
