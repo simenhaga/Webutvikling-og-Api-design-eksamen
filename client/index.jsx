@@ -12,6 +12,7 @@ import { useLoading } from "./utils/useLoading";
 import { AddNewArticle } from "./addNewArticle";
 import { UpdateArticle } from "./updateArticle";
 import { ListArticles } from "./listArticles";
+import { ListTitles } from "./listTitles";
 
 const ProfileContext = React.createContext({
   userinfo: undefined,
@@ -137,33 +138,6 @@ function LoginCallback({ reload }) {
     test();
   });
   return <h1>Please wait</h1>;
-}
-
-function ListTitles() {
-  const { loading, error, data } = useLoading(async () =>
-    fetchJSON("/api/articles")
-  );
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <div>{error.toString()}</div>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <h2>Articles</h2>
-      {data.map((article) => (
-        <p>{article.title}</p>
-      ))}
-    </div>
-  );
 }
 
 function ListTopics() {
