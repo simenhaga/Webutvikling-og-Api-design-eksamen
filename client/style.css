@@ -14,12 +14,11 @@
 
 header {
     grid-area: header;
-    border: black 5px;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     background-color: lightsalmon;
     display: inline-block;
-
+    position: relative;
 }
 
 nav {
@@ -45,7 +44,11 @@ main div {
 
 #appName {
     font-family: "Arial Rounded MT Bold", sans-serif;
-    margin-left: 2.5rem;
+    left: 4rem;
+    position: absolute;
+    margin: 0;
+    top: 1.5rem;
+
 }
 
 #login {
@@ -55,7 +58,9 @@ main div {
     color: white;
     padding: 10px 15px;
     text-decoration: none;
-    margin-left: 25rem;
+    right: 3rem;
+    position: absolute;
+    top: 1.5rem;
 }
 
 header #wrapper div {
@@ -69,7 +74,9 @@ header #wrapper div {
     border-radius: 10px;
     color: white;
     padding: 10px 15px;
-    margin-left: 10rem;
+    position: absolute;
+    left: 23rem;
+    top: 1.5rem;
 }
 
 #addArticle {
@@ -78,7 +85,20 @@ header #wrapper div {
     border-radius: 10px;
     color: blueviolet;
     padding: 10px 15px;
-    margin-left: 1.5rem;
+    position: absolute;
+    left: 35rem;
+    top: 1.5rem;
+}
+
+#updateArticle {
+    font-family: "Arial Rounded MT", sans-serif;
+    text-decoration: none;
+    border-radius: 10px;
+    color: blueviolet;
+    padding: 10px 15px;
+    position: absolute;
+    left: 43rem;
+    top: 1.5rem;
 }
 
 .articleName h3 {
