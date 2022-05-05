@@ -43,7 +43,7 @@ function Frontpage({ reload }) {
           )}
           {userinfo && (
             <div>
-              <Link id="addArticle" to={"/articles/update"}>
+              <Link id="updateArticle" to={"/articles/update"}>
                 Update article
               </Link>
             </div>
